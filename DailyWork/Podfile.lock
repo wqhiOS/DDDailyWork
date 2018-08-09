@@ -1,0 +1,50 @@
+PODS:
+  - Alamofire (4.7.3)
+  - Alamofire-SwiftyJSON (3.0.0):
+    - Alamofire (~> 4.5)
+    - SwiftyJSON (~> 4.0.0)
+  - HandyJSON (4.1.3)
+  - Kingfisher (4.8.1)
+  - MJRefresh (3.1.15.3)
+  - RxCocoa (4.2.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.2.0)
+  - SnapKit (4.0.0)
+  - SwiftyJSON (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Alamofire-SwiftyJSON
+  - HandyJSON
+  - Kingfisher
+  - MJRefresh
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - SnapKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Alamofire-SwiftyJSON
+    - HandyJSON
+    - Kingfisher
+    - MJRefresh
+    - RxCocoa
+    - RxSwift
+    - SnapKit
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
+  HandyJSON: bc81fbeb62d65ae5d5942ed29bc4a8265d18c1e8
+  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
+  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+
+PODFILE CHECKSUM: f07e6cf0e54e9b8a921d55390e852982082e318f
+
+COCOAPODS: 1.5.3
