@@ -112,7 +112,7 @@ class MusicPlayViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        MusicPlayToolView.shared.dismiss(animated: true)
+        MusicPlayToolView.shared.dismiss(animated: false)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -180,6 +180,39 @@ extension MusicPlayViewController {
     }
     @objc private func backButtonClick() {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension MusicPlayViewController {
+    func showAnimation(completion:@escaping (Bool)->Void) {
+        
+        musicImageView.snp.remakeConstraints { (make) in
+            make.width.height.equalTo(45)
+            make.bottom.equalToSuperview().offset(-65)
+            make.right.equalToSuperview().offset(-30)
+        }
+     
+        view.layoutIfNeeded()
+        
+        musicImageView.snp.remakeConstraints { (make) in
+            make.top.equalToSuperview().offset(84)
+            make.centerX.equalToSuperview()
+            make.width.height.equalTo(SCREEN_WIDTH*0.6)
+        }
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: completion)
+     
+    }
+    func dismissAnimation() {
+        musicImageView.snp.remakeConstraints { (make) in
+            make.width.height.equalTo(45)
+            make.bottom.equalToSuperview().offset(-65)
+            make.right.equalToSuperview().offset(-30)
+        }
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
 

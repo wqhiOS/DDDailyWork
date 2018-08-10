@@ -12,6 +12,7 @@
 		E3404627211D35D500FC2476 /* MusicPlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3404626211D35D500FC2476 /* MusicPlayListViewController.swift */; };
 		E340462B211D6ADF00FC2476 /* MusicProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340462A211D6ADF00FC2476 /* MusicProgressButton.swift */; };
 		E340462D211D721300FC2476 /* MusicPlayToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340462C211D721200FC2476 /* MusicPlayToolView.swift */; };
+		E340462F211D83A900FC2476 /* MusicTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340462E211D83A900FC2476 /* MusicTransitionAnimation.swift */; };
 		E3584A90211C2ED5000FFF01 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A8F211C2ED5000FFF01 /* UIFont+Extension.swift */; };
 		E3584A92211C30AB000FFF01 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A91211C30AB000FFF01 /* Common.swift */; };
 		E3584A94211C3DBB000FFF01 /* DDAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */; };
@@ -80,6 +81,7 @@
 		E3404626211D35D500FC2476 /* MusicPlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayListViewController.swift; sourceTree = "<group>"; };
 		E340462A211D6ADF00FC2476 /* MusicProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProgressButton.swift; sourceTree = "<group>"; };
 		E340462C211D721200FC2476 /* MusicPlayToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayToolView.swift; sourceTree = "<group>"; };
+		E340462E211D83A900FC2476 /* MusicTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTransitionAnimation.swift; sourceTree = "<group>"; };
 		E3584A8F211C2ED5000FFF01 /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		E3584A91211C30AB000FFF01 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDAudioPlayer.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				E3C1B178211BD51A00FCD95B /* MusicHandle.swift */,
+				E340462E211D83A900FC2476 /* MusicTransitionAnimation.swift */,
 			);
 			path = Ohter;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				E3EF6AD3211A763500DD947E /* TabBarController.swift in Sources */,
 				E3C1B183211C088C00FCD95B /* MusicInfo.swift in Sources */,
 				E3C1B17C211BDB5100FCD95B /* MusicSearchResultViewController.swift in Sources */,
+				E340462F211D83A900FC2476 /* MusicTransitionAnimation.swift in Sources */,
 				E340462B211D6ADF00FC2476 /* MusicProgressButton.swift in Sources */,
 				E3584A90211C2ED5000FFF01 /* UIFont+Extension.swift in Sources */,
 				E3EF6ADA211A77E000DD947E /* WeatherMainViewController.swift in Sources */,

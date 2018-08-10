@@ -127,6 +127,8 @@ class MusicPlayToolView: UIView {
     @objc private func click() {
         
         let musicPlayVc = MusicPlayViewController.init((musicInfo?.song_id)!)
+        musicPlayVc.modalPresentationStyle = .custom
+        musicPlayVc.transitioningDelegate = MusicTransitionAnimation.shared
         var currentVc = UIApplication.shared.keyWindow?.rootViewController
         while ((currentVc?.presentedViewController) != nil) {
             currentVc = currentVc?.presentedViewController
