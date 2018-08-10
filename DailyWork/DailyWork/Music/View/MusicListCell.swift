@@ -10,7 +10,7 @@ import UIKit
 
 class MusicListCell: UITableViewCell {
     
-    var music: Music? {
+    var music: MusicInfo? {
         didSet {
             guard let music = music else {
                 return

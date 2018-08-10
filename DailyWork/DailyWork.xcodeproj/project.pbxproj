@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CD2221A11B595C80CC2346E8 /* Pods_DailyWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABD41982B1A922855098927 /* Pods_DailyWork.framework */; };
+		E3404622211D2F8400FC2476 /* MusicBitrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3404621211D2F8400FC2476 /* MusicBitrate.swift */; };
+		E3404627211D35D500FC2476 /* MusicPlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3404626211D35D500FC2476 /* MusicPlayListViewController.swift */; };
+		E340462B211D6ADF00FC2476 /* MusicProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340462A211D6ADF00FC2476 /* MusicProgressButton.swift */; };
+		E340462D211D721300FC2476 /* MusicPlayToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340462C211D721200FC2476 /* MusicPlayToolView.swift */; };
 		E3584A90211C2ED5000FFF01 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A8F211C2ED5000FFF01 /* UIFont+Extension.swift */; };
 		E3584A92211C30AB000FFF01 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A91211C30AB000FFF01 /* Common.swift */; };
 		E3584A94211C3DBB000FFF01 /* DDAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */; };
@@ -15,7 +19,7 @@
 		E3C1B179211BD51A00FCD95B /* MusicHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B178211BD51A00FCD95B /* MusicHandle.swift */; };
 		E3C1B17C211BDB5100FCD95B /* MusicSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B17B211BDB5100FCD95B /* MusicSearchResultViewController.swift */; };
 		E3C1B180211C012800FCD95B /* DDNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B17F211C012800FCD95B /* DDNetwork.swift */; };
-		E3C1B183211C088C00FCD95B /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B182211C088C00FCD95B /* Music.swift */; };
+		E3C1B183211C088C00FCD95B /* MusicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B182211C088C00FCD95B /* MusicInfo.swift */; };
 		E3C1B186211C139300FCD95B /* MusicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B185211C139300FCD95B /* MusicListCell.swift */; };
 		E3C1B189211C149900FCD95B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B188211C149900FCD95B /* UIColor+Extension.swift */; };
 		E3C1B18B211C151D00FCD95B /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B18A211C151D00FCD95B /* UILabel+Extension.swift */; };
@@ -51,12 +55,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E340461F211D1A0500FC2476 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		100A3A61B963983845BEBA41 /* Pods_DailyWorkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyWorkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6278AD65E6F32434EA6DB0 /* Pods-DailyWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyWork.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyWork/Pods-DailyWork.release.xcconfig"; sourceTree = "<group>"; };
 		A6B8F5AB352678E67AF5663D /* Pods_DailyWorkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyWorkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B01E0E6C55514FA7BF4BA248 /* Pods-DailyWork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyWork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyWork/Pods-DailyWork.debug.xcconfig"; sourceTree = "<group>"; };
 		DABD41982B1A922855098927 /* Pods_DailyWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3404616211D198800FC2476 /* DailyWork-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DailyWork-Bridging-Header.h"; sourceTree = "<group>"; };
+		E340461A211D19FD00FC2476 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3404621211D2F8400FC2476 /* MusicBitrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBitrate.swift; sourceTree = "<group>"; };
+		E3404626211D35D500FC2476 /* MusicPlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayListViewController.swift; sourceTree = "<group>"; };
+		E340462A211D6ADF00FC2476 /* MusicProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProgressButton.swift; sourceTree = "<group>"; };
+		E340462C211D721200FC2476 /* MusicPlayToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayToolView.swift; sourceTree = "<group>"; };
 		E3584A8F211C2ED5000FFF01 /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		E3584A91211C30AB000FFF01 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDAudioPlayer.swift; sourceTree = "<group>"; };
@@ -64,7 +87,7 @@
 		E3C1B178211BD51A00FCD95B /* MusicHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHandle.swift; sourceTree = "<group>"; };
 		E3C1B17B211BDB5100FCD95B /* MusicSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchResultViewController.swift; sourceTree = "<group>"; };
 		E3C1B17F211C012800FCD95B /* DDNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDNetwork.swift; sourceTree = "<group>"; };
-		E3C1B182211C088C00FCD95B /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		E3C1B182211C088C00FCD95B /* MusicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicInfo.swift; sourceTree = "<group>"; };
 		E3C1B185211C139300FCD95B /* MusicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCell.swift; sourceTree = "<group>"; };
 		E3C1B188211C149900FCD95B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E3C1B18A211C151D00FCD95B /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -127,11 +150,21 @@
 		6317CB4BACB0CC7B57375F12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E340461A211D19FD00FC2476 /* MJRefresh.framework */,
 				DABD41982B1A922855098927 /* Pods_DailyWork.framework */,
 				A6B8F5AB352678E67AF5663D /* Pods_DailyWorkTests.framework */,
 				100A3A61B963983845BEBA41 /* Pods_DailyWorkUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3404620211D223300FC2476 /* AudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */,
+				E3584A95211C3F1B000FFF01 /* DDAudioModel.swift */,
+			);
+			path = AudioPlayer;
 			sourceTree = "<group>";
 		};
 		E3C1B176211BD4D100FCD95B /* Music */ = {
@@ -174,7 +207,8 @@
 		E3C1B181211C087600FCD95B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E3C1B182211C088C00FCD95B /* Music.swift */,
+				E3C1B182211C088C00FCD95B /* MusicInfo.swift */,
+				E3404621211D2F8400FC2476 /* MusicBitrate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,7 +216,9 @@
 		E3C1B184211C138400FCD95B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E340462C211D721200FC2476 /* MusicPlayToolView.swift */,
 				E3C1B185211C139300FCD95B /* MusicListCell.swift */,
+				E340462A211D6ADF00FC2476 /* MusicProgressButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +239,7 @@
 			children = (
 				E3EF6ADB211AED1800DD947E /* MusicMainViewController.swift */,
 				E3C1B190211C28CA00FCD95B /* MusicPlayViewController.swift */,
+				E3404626211D35D500FC2476 /* MusicPlayListViewController.swift */,
 				E3C1B17B211BDB5100FCD95B /* MusicSearchResultViewController.swift */,
 			);
 			path = ViewController;
@@ -243,6 +280,7 @@
 				E3EF6AAD211A755C00DD947E /* LaunchScreen.storyboard */,
 				E3EF6AB0211A755C00DD947E /* Info.plist */,
 				E3EF6ADD211AED6300DD947E /* Tools */,
+				E3404616211D198800FC2476 /* DailyWork-Bridging-Header.h */,
 			);
 			path = DailyWork;
 			sourceTree = "<group>";
@@ -276,10 +314,9 @@
 		E3EF6ADD211AED6300DD947E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				E3404620211D223300FC2476 /* AudioPlayer */,
 				E3C1B187211C147900FCD95B /* Extensions */,
 				E3C1B17E211C012800FCD95B /* Network */,
-				E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */,
-				E3584A95211C3F1B000FFF01 /* DDAudioModel.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -296,6 +333,7 @@
 				E3EF6A9E211A755A00DD947E /* Frameworks */,
 				E3EF6A9F211A755A00DD947E /* Resources */,
 				CD54630D3793EA2F98620928 /* [CP] Embed Pods Frameworks */,
+				E340461F211D1A0500FC2476 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,6 +392,7 @@
 				TargetAttributes = {
 					E3EF6AA0211A755A00DD947E = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					E3EF6AB4211A755C00DD947E = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -473,20 +512,24 @@
 			files = (
 				E3C1B18D211C15E900FCD95B /* exported.swift in Sources */,
 				E3EF6AD8211A77D000DD947E /* BaseViewController.swift in Sources */,
+				E3404627211D35D500FC2476 /* MusicPlayListViewController.swift in Sources */,
 				E3C1B180211C012800FCD95B /* DDNetwork.swift in Sources */,
 				E3EF6AD5211A76A300DD947E /* NavigationViewController.swift in Sources */,
 				E3584A94211C3DBB000FFF01 /* DDAudioPlayer.swift in Sources */,
 				E3584A92211C30AB000FFF01 /* Common.swift in Sources */,
 				E3C1B18F211C1E7900FCD95B /* UIScrollView+Extension.swift in Sources */,
+				E340462D211D721300FC2476 /* MusicPlayToolView.swift in Sources */,
 				E3C1B189211C149900FCD95B /* UIColor+Extension.swift in Sources */,
 				E3C1B179211BD51A00FCD95B /* MusicHandle.swift in Sources */,
 				E3EF6AD3211A763500DD947E /* TabBarController.swift in Sources */,
-				E3C1B183211C088C00FCD95B /* Music.swift in Sources */,
+				E3C1B183211C088C00FCD95B /* MusicInfo.swift in Sources */,
 				E3C1B17C211BDB5100FCD95B /* MusicSearchResultViewController.swift in Sources */,
+				E340462B211D6ADF00FC2476 /* MusicProgressButton.swift in Sources */,
 				E3584A90211C2ED5000FFF01 /* UIFont+Extension.swift in Sources */,
 				E3EF6ADA211A77E000DD947E /* WeatherMainViewController.swift in Sources */,
 				E3C1B186211C139300FCD95B /* MusicListCell.swift in Sources */,
 				E3EF6ADC211AED1800DD947E /* MusicMainViewController.swift in Sources */,
+				E3404622211D2F8400FC2476 /* MusicBitrate.swift in Sources */,
 				E3584A96211C3F1B000FFF01 /* DDAudioModel.swift in Sources */,
 				E3C1B18B211C151D00FCD95B /* UILabel+Extension.swift in Sources */,
 				E3C1B191211C28CA00FCD95B /* MusicPlayViewController.swift in Sources */,
@@ -656,6 +699,7 @@
 			baseConfigurationReference = B01E0E6C55514FA7BF4BA248 /* Pods-DailyWork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5E3A9G5UU5;
 				INFOPLIST_FILE = DailyWork/Info.plist;
@@ -666,8 +710,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wuqh.DailyWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DailyWork/DailyWork-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -676,6 +723,7 @@
 			baseConfigurationReference = 4B6278AD65E6F32434EA6DB0 /* Pods-DailyWork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5E3A9G5UU5;
 				INFOPLIST_FILE = DailyWork/Info.plist;
@@ -686,8 +734,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wuqh.DailyWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DailyWork/DailyWork-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

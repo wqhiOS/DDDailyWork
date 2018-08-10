@@ -9,7 +9,7 @@
 import Foundation
 import HandyJSON
 
-struct Music:HandyJSON {
+struct MusicInfo:HandyJSON {
     
     var song_id: String?
     var title: String?
@@ -27,6 +27,7 @@ struct Music:HandyJSON {
     var album_500_500: String?
     var album_800_800: String?
     var album_1000_1000: String?
-    var pic: String!
+    
+    var bitrate: MusicBitrate?
     
 }

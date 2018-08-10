@@ -10,7 +10,7 @@ import UIKit
 
 class MusicMainViewController: BaseViewController {
     
-    private var songList:[Music]? {
+    private var songList:[MusicInfo]? {
         didSet {
             tableView.reloadData()
         }
@@ -23,8 +23,16 @@ class MusicMainViewController: BaseViewController {
         tv.register(MusicListCell.self, forCellReuseIdentifier: MusicListCell.description())
         tv.tableFooterView = UIView()
         tv.addRefreshControl {[weak self] in
-            self?.queryMusic()
+            self?.queryMusicList(0)
         }
+        
+        tv.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {[weak self] in
+            let offset = self?.songList?.count
+            if let offset = offset {
+                self?.queryMusicList(offset)
+            }
+            
+        })
         return tv
     }()
     
@@ -50,14 +58,23 @@ class MusicMainViewController: BaseViewController {
             tableView.tableHeaderView = search.searchBar
         }
         
-        queryMusic()
+        queryMusicList(0)
 
     }
 
-    private func queryMusic() {
-        MusicHandle.query(success: { (songList) in
-            self.songList = songList
+    private func queryMusicList(_ offset: Int) {
+        MusicHandle.queryMusicList(offset,success: { (songList) in
+            if offset == 0 {
+                self.songList = songList
+            }else {
+                self.songList?.append(contentsOf: songList)
+            }
             self.tableView.refreshControl?.endRefreshing()
+            if songList.count < 10 {
+                self.tableView.mj_footer.endRefreshingWithNoMoreData()
+            }else {
+                self.tableView.mj_footer.endRefreshing()
+            }
         }) { (error) in
             self.tableView.refreshControl?.endRefreshing()
         }

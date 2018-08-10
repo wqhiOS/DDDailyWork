@@ -14,8 +14,9 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        addChildViewController(WeatherMainViewController(), title: "天气")
         addChildViewController(MusicMainViewController(), title: "音乐")
+        addChildViewController(WeatherMainViewController(), title: "天气")
+        
     }
     
     func addChildViewController(_ childController: BaseViewController, title: String) {
