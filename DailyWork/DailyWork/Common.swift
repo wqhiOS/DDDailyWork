@@ -22,3 +22,8 @@ let STATUS_BAR_HEIGHT: CGFloat = IS_IPHONEX ? (20 + 24) : 20
 let NAVIGATION_BAR_HEIGHT: CGFloat = 44
 
 let STATUS_AND_NAVIGATION_BAR_HEIGHT: CGFloat = STATUS_BAR_HEIGHT + NAVIGATION_BAR_HEIGHT
+
+infix operator %
+public func % (left:CGFloat, right:CGFloat) -> CGFloat {
+    return left.truncatingRemainder(dividingBy: right)
+}

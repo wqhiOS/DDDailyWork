@@ -9,9 +9,7 @@
 import UIKit
 
 class MusicPlayViewController: BaseViewController {
-    
-   
-    
+  
     let songId: String
     var music: MusicInfo? {
         didSet {
@@ -21,7 +19,7 @@ class MusicPlayViewController: BaseViewController {
             musicImageView.kf.setImage(with: URL(string: (music.pic_premium) ?? ""))
             musicNameLabel.text = music.title
             authorNameLabel.text = music.author
-            endTimeLabel.text = "\(String(describing: music.bitrate?.file_duration ?? 0))"
+            endTimeLabel.text = DDAudioTool.dealTimeWithVideoTime(videoTime: Double(music.bitrate?.file_duration ?? 0))
         }
     }
     
@@ -123,24 +121,32 @@ class MusicPlayViewController: BaseViewController {
     private func queryMusicInfo() {
         MusicHandle.queryMusicInfo(songId, success: { (music) in
             self.music = music
+            self.playImmediately()
+            self.playButton.isSelected = true
+            DDAudioPlayer.shared.delegates.append(self)
         }) { (errorMsg) in
             
         }
     }
-    
-
 }
+
+
 
 // MARK: - PlayMusic
 extension MusicPlayViewController {
-    private func play() {
+    private func playImmediately() {
         let audioModel = DDAudioModel()
         audioModel.audioUrl = music?.bitrate?.file_link
         DDAudioPlayer.shared.playAudioImmediately([audioModel])
     }
     private func pause() {
+        
         DDAudioPlayer.shared.pause()
     }
+    private func play() {
+        DDAudioPlayer.shared.play()
+    }
+
 }
 
 // MARK: - Action
@@ -183,9 +189,20 @@ extension MusicPlayViewController {
     }
 }
 
+// MARK: - DDAudioPlayerDelegate
+extension MusicPlayViewController: DDAudioPlayerDelegate {
+    func audioPlayerTimeChanged(currentTime: TimeInterval, totalTime: TimeInterval, audioModel: DDAudioModel, percent: Double) {
+        self.slider.value = Float(percent)
+        self.startTimeLabel.text = DDAudioTool.dealTimeWithVideoTime(videoTime: currentTime)
+    }
+}
+
+// MARK: - 转场动画
 extension MusicPlayViewController {
     func showAnimation(completion:@escaping (Bool)->Void) {
-        
+        slider.snp.updateConstraints { (make) in
+            make.top.equalToSuperview().offset(SCREEN_HEIGHT)
+        }
         musicImageView.snp.remakeConstraints { (make) in
             make.width.height.equalTo(45)
             make.bottom.equalToSuperview().offset(-65)
@@ -194,6 +211,9 @@ extension MusicPlayViewController {
      
         view.layoutIfNeeded()
         
+        slider.snp.updateConstraints { (make) in
+            make.top.equalToSuperview().offset(SCREEN_WIDTH*0.8 + 100)
+        }
         musicImageView.snp.remakeConstraints { (make) in
             make.top.equalToSuperview().offset(84)
             make.centerX.equalToSuperview()
@@ -205,6 +225,9 @@ extension MusicPlayViewController {
      
     }
     func dismissAnimation() {
+        slider.snp.updateConstraints { (make) in
+            make.top.equalToSuperview().offset(SCREEN_HEIGHT)
+        }
         musicImageView.snp.remakeConstraints { (make) in
             make.width.height.equalTo(45)
             make.bottom.equalToSuperview().offset(-65)
@@ -219,6 +242,13 @@ extension MusicPlayViewController {
 // MAKR: - UI
 extension MusicPlayViewController {
     private func setupUI() {
+        
+        let swiptTap = UISwipeGestureRecognizer.init(target: self, action: #selector(backButtonClick))
+        swiptTap.direction = .down
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(swiptTap)
+        
+        
         view.backgroundColor = UIColor.white
         view.addSubview(backButton)
         view.addSubview(musicImageViewCover)
@@ -255,16 +285,8 @@ extension MusicPlayViewController {
         
         slider.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(SCREEN_WIDTH*0.8 + 100)
-            make.left.equalToSuperview().offset(40)
-            make.right.equalToSuperview().offset(-40)
-        }
-        musicNameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(slider.snp.bottom).offset(28)
             make.centerX.equalToSuperview()
-        }
-        authorNameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(musicNameLabel.snp.bottom).offset(12)
-            make.centerX.equalToSuperview()
+            make.width.equalTo(SCREEN_WIDTH-80)
         }
         startTimeLabel.snp.makeConstraints { (make) in
             make.left.equalTo(slider.snp.left)
@@ -273,6 +295,17 @@ extension MusicPlayViewController {
         endTimeLabel.snp.makeConstraints { (make) in
             make.right.equalTo(slider.snp.right)
             make.top.equalTo(slider.snp.bottom)
+        }
+        musicNameLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(slider.snp.bottom).offset(28)
+            make.width.equalTo(SCREEN_WIDTH-80)
+            make.height.equalTo(23)
+            make.centerX.equalToSuperview()
+        }
+        authorNameLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(musicNameLabel.snp.bottom).offset(12)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(20)
         }
         playButton.snp.makeConstraints { (make) in
             make.top.equalTo(authorNameLabel.snp.bottom).offset(24)
@@ -286,6 +319,8 @@ extension MusicPlayViewController {
             make.centerY.equalTo(playButton)
             make.left.equalTo(playButton.snp.right).offset(80)
         }
+        
+        //底部两个按钮
         audioListButton.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(15)
             make.width.height.equalTo(40)
