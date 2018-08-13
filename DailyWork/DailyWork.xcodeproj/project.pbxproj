@@ -17,6 +17,7 @@
 		E3584A92211C30AB000FFF01 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A91211C30AB000FFF01 /* Common.swift */; };
 		E3584A94211C3DBB000FFF01 /* DDAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */; };
 		E3584A96211C3F1B000FFF01 /* DDAudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A95211C3F1B000FFF01 /* DDAudioModel.swift */; };
+		E39A0396212180E400EAF30C /* DDAudioTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39A0395212180E400EAF30C /* DDAudioTool.swift */; };
 		E3C1B179211BD51A00FCD95B /* MusicHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B178211BD51A00FCD95B /* MusicHandle.swift */; };
 		E3C1B17C211BDB5100FCD95B /* MusicSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B17B211BDB5100FCD95B /* MusicSearchResultViewController.swift */; };
 		E3C1B180211C012800FCD95B /* DDNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1B17F211C012800FCD95B /* DDNetwork.swift */; };
@@ -86,6 +87,7 @@
 		E3584A91211C30AB000FFF01 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDAudioPlayer.swift; sourceTree = "<group>"; };
 		E3584A95211C3F1B000FFF01 /* DDAudioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDAudioModel.swift; sourceTree = "<group>"; };
+		E39A0395212180E400EAF30C /* DDAudioTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDAudioTool.swift; sourceTree = "<group>"; };
 		E3C1B178211BD51A00FCD95B /* MusicHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHandle.swift; sourceTree = "<group>"; };
 		E3C1B17B211BDB5100FCD95B /* MusicSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchResultViewController.swift; sourceTree = "<group>"; };
 		E3C1B17F211C012800FCD95B /* DDNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDNetwork.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */,
 				E3584A95211C3F1B000FFF01 /* DDAudioModel.swift */,
+				E39A0395212180E400EAF30C /* DDAudioTool.swift */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				E3584A96211C3F1B000FFF01 /* DDAudioModel.swift in Sources */,
 				E3C1B18B211C151D00FCD95B /* UILabel+Extension.swift in Sources */,
 				E3C1B191211C28CA00FCD95B /* MusicPlayViewController.swift in Sources */,
+				E39A0396212180E400EAF30C /* DDAudioTool.swift in Sources */,
 				E3EF6AA5211A755B00DD947E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
