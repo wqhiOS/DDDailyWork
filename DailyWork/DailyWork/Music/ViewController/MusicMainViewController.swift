@@ -79,6 +79,22 @@ class MusicMainViewController: BaseViewController {
             self.tableView.refreshControl?.endRefreshing()
         }
     }
+    
+    private func playMusic(_ musicInfo: MusicInfo) {
+        MusicHandle.queryMusicInfo(musicInfo.song_id!, success: { (music) in
+            
+            MusicPlayToolView.shared.musicInfo = music
+            MusicPlayToolView.shared.show(animated: true)
+            let audioModel = DDAudioModel()
+            audioModel.audioUrl = music.bitrate?.file_link
+            DDAudioPlayer.shared.playAudioImmediately([audioModel])
+            DDAudioPlayer.shared.delegates.append(MusicPlayToolView.shared)
+          
+        }) { (errorMsg) in
+            
+        }
+        
+    }
 
 }
 
@@ -93,8 +109,7 @@ extension MusicMainViewController: UITableViewDataSource,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let musicPlayVc = MusicPlayViewController.init(songList![indexPath.row].song_id!)
-        present(musicPlayVc, animated: true, completion: nil)
+        playMusic((songList?[indexPath.row])!)
     }
 }
 

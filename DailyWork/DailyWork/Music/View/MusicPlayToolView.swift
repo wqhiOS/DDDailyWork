@@ -24,7 +24,7 @@ class MusicPlayToolView: UIView {
             durationLable.text = "\(musicInfo.bitrate?.file_duration ?? 0)"
             
             musicImageView.kf.setImage(with: URL(string: musicInfo.pic_big ?? ""))
-            
+         
         }
     }
     
@@ -116,6 +116,12 @@ class MusicPlayToolView: UIView {
     }
     @objc private func progressButtonClick(_ btn: MusicProgressButton) {
         btn.isSelected = !btn.isSelected
+        
+        if btn.isSelected == true {//暂停
+            DDAudioPlayer.shared.pause()
+        }else {
+            DDAudioPlayer.shared.play()
+        }
 
         closeButton.snp.updateConstraints { (make) in
             make.width.height.equalTo(btn.isSelected ? 35 : 0)
@@ -126,7 +132,8 @@ class MusicPlayToolView: UIView {
     }
     @objc private func click() {
         
-        let musicPlayVc = MusicPlayViewController.init((musicInfo?.song_id)!)
+        let musicPlayVc = MusicPlayViewController()
+        musicPlayVc.music = musicInfo
         musicPlayVc.modalPresentationStyle = .custom
         musicPlayVc.transitioningDelegate = MusicTransitionAnimation.shared
         var currentVc = UIApplication.shared.keyWindow?.rootViewController
@@ -190,4 +197,10 @@ class MusicPlayToolView: UIView {
         window.layoutIfNeeded()
     }
     
+}
+
+extension MusicPlayToolView: DDAudioPlayerDelegate {
+    func audioPlayerTimeChanged(currentTime: TimeInterval, totalTime: TimeInterval, audioModel: DDAudioModel, percent: Double) {
+        progressButton.progress = percent
+    }
 }

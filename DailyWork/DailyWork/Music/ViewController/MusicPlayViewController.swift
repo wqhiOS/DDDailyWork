@@ -10,7 +10,9 @@ import UIKit
 
 class MusicPlayViewController: BaseViewController {
   
-    let songId: String
+    // MARK: - 属性
+    // MARK: Data
+    var songId: String?
     var music: MusicInfo? {
         didSet {
             guard let music = music else {
@@ -22,7 +24,25 @@ class MusicPlayViewController: BaseViewController {
             endTimeLabel.text = DDAudioTool.dealTimeWithVideoTime(videoTime: Double(music.bitrate?.file_duration ?? 0))
         }
     }
-    
+  
+    var audioStatus: DDAudioPlayerStatus? {
+        didSet {
+            guard let status = audioStatus else {
+                return
+            }
+            switch status {
+            case .playing:
+                play()
+            case .paused:
+                pause()
+            case .stop:
+                print("stop")
+            case .error:
+                print("error")
+            }
+        }
+    }
+    // MARK: UI
     private lazy var backButton:UIButton = {
         let btn = UIButton.init(type: .custom)
         btn.setImage(UIImage(named: "BackButton"), for: .normal)
@@ -92,11 +112,14 @@ class MusicPlayViewController: BaseViewController {
     }()
     
     
-    init(_ musicId: String) {
+    convenience init(_ musicId: String) {
+        self.init(nibName: nil, bundle: nil)
         songId = musicId
-        super.init(nibName: nil, bundle: nil)
     }
-    
+   
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -106,7 +129,7 @@ class MusicPlayViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         setupUI()
-        queryMusicInfo()
+        DDAudioPlayer.shared.delegates.append(self)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -118,16 +141,7 @@ class MusicPlayViewController: BaseViewController {
         MusicPlayToolView.shared.show(animated: true)
     }
     
-    private func queryMusicInfo() {
-        MusicHandle.queryMusicInfo(songId, success: { (music) in
-            self.music = music
-            self.playImmediately()
-            self.playButton.isSelected = true
-            DDAudioPlayer.shared.delegates.append(self)
-        }) { (errorMsg) in
-            
-        }
-    }
+ 
 }
 
 
@@ -141,10 +155,33 @@ extension MusicPlayViewController {
     }
     private func pause() {
         
+        musicImageViewCover.layer.shadowOffset = CGSize(width: 2, height: 5)
+        musicImageViewCover.layer.shadowOpacity = 0.4
+        musicImageView.snp.updateConstraints { (make) in
+            make.width.height.equalTo(SCREEN_WIDTH*0.6)
+        }
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
         DDAudioPlayer.shared.pause()
+        if playButton.isSelected != false {
+            playButton.isSelected = false
+        }
     }
     private func play() {
+        musicImageViewCover.layer.shadowOffset = CGSize(width: 4, height: 8)
+        musicImageViewCover.layer.shadowOpacity = 0.8
+        musicImageView.snp.updateConstraints { (make) in
+            make.width.height.equalTo(SCREEN_WIDTH*0.8)
+        }
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
         DDAudioPlayer.shared.play()
+        if playButton.isSelected != true {
+            playButton.isSelected = true
+        }
     }
 
 }
@@ -154,23 +191,11 @@ extension MusicPlayViewController {
     @objc private func playButtonClick(_ btn: UIButton) {
         btn.isSelected = !btn.isSelected
         if btn.isSelected == false {//暂停
-            musicImageViewCover.layer.shadowOffset = CGSize(width: 2, height: 5)
-            musicImageViewCover.layer.shadowOpacity = 0.4
-            musicImageView.snp.updateConstraints { (make) in
-                make.width.height.equalTo(SCREEN_WIDTH*0.6)
-            }
-            pause()
+            audioStatus = .paused
         }else {//播放
-            musicImageViewCover.layer.shadowOffset = CGSize(width: 4, height: 8)
-            musicImageViewCover.layer.shadowOpacity = 0.8
-            musicImageView.snp.updateConstraints { (make) in
-                make.width.height.equalTo(SCREEN_WIDTH*0.8)
-            }
-            play()
+            audioStatus = .playing
         }
-        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [], animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
+        
     }
     @objc private func preButtonClick(_ btn: UIButton) {
         
@@ -214,11 +239,28 @@ extension MusicPlayViewController {
         slider.snp.updateConstraints { (make) in
             make.top.equalToSuperview().offset(SCREEN_WIDTH*0.8 + 100)
         }
-        musicImageView.snp.remakeConstraints { (make) in
-            make.top.equalToSuperview().offset(84)
-            make.centerX.equalToSuperview()
-            make.width.height.equalTo(SCREEN_WIDTH*0.6)
+        if DDAudioPlayer.shared.playerStatus == .playing {
+            musicImageViewCover.layer.shadowOffset = CGSize(width: 4, height: 8)
+            musicImageViewCover.layer.shadowOpacity = 0.8
+            musicImageView.snp.remakeConstraints { (make) in
+                make.top.equalToSuperview().offset(84)
+                make.centerX.equalToSuperview()
+                
+                make.width.height.equalTo(SCREEN_WIDTH*0.8)
+            }
+            playButton.isSelected = true
+            
+        }else {
+            musicImageViewCover.layer.shadowOffset = CGSize(width: 2, height: 5)
+            musicImageViewCover.layer.shadowOpacity = 0.4
+            musicImageView.snp.updateConstraints { (make) in
+                make.top.equalToSuperview().offset(84)
+                make.centerX.equalToSuperview()
+                make.width.height.equalTo(SCREEN_WIDTH*0.6)
+            }
+            playButton.isSelected = false
         }
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.view.layoutIfNeeded()
         }, completion: completion)
