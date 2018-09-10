@@ -13,7 +13,7 @@ class WorkCalendarPageViewController: UIPageViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.white
         dataSource = self
         setViewControllers([WorkCalendarContentViewController()], direction: .forward, animated: true, completion: nil)
     }

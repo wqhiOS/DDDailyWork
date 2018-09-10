@@ -11,6 +11,9 @@ import UIKit
 class WorkCalendarViewController: UIViewController {
     
     var isShow: Bool = false
+    static var contentHeight = WorkCalendarContentViewController.contentHeight + 40
+    
+    let calendarPageVc = WorkCalendarPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     
     private lazy var calendarView: UIView = {
         let calendarView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: WorkCalendarContentViewController.contentHeight+40))
@@ -22,14 +25,13 @@ class WorkCalendarViewController: UIViewController {
         titleView.addSubview(titleLabel)
         calendarView.addSubview(titleView)
         
-        let calendarPageVc = WorkCalendarPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         addChildViewController(calendarPageVc)
         calendarPageVc.view.frame = CGRect(x: 0, y: 40, width: SCREEN_WIDTH, height: WorkCalendarContentViewController.contentHeight)
         calendarView.addSubview(calendarPageVc.view)
         
-//        let tap = UITapGestureRecognizer.init(target: self, action: #selector(calendarTitleClick))
-//        calendarView.addGestureRecognizer(tap)
-//        calendarView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(calendarTitleClick))
+        calendarView.addGestureRecognizer(tap)
+        calendarView.isUserInteractionEnabled = true
         return calendarView
     }()
 
