@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,17 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+      
+//        NetworkReachabilityManager.init()?.startListening()
+//        let urlCache = URLCache.init(memoryCapacity: 4*1024*1024, diskCapacity: 20*1024*1024, diskPath: nil)
+//        URLCache.shared = urlCache
         
+      
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
-        
-//        try? AVAudioSession.sharedInstance().setActive(true, with: .notifyOthersOnDeactivation)
-//        try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.allowBluetooth)
-//        UIApplication.shared.beginReceivingRemoteControlEvents()
 
-        
         return true
     }
 

@@ -19,6 +19,18 @@ typealias FailureHandle = (Error)->()
 typealias UploadProgressHandle = (Progress)->()
 typealias UploadHandle = (MultipartFormData)->Void
 
+let manager: SessionManager = {
+    let configuration = URLSessionConfiguration.default
+    let reachability = NetworkReachabilityManager()
+    if (reachability?.isReachable)! {
+        configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+    }else
+    {
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+    }
+    return Alamofire.SessionManager(configuration: configuration)
+}()
+
 
 func postRequest(_ url: String,
                  parameters: Parameters,
@@ -33,7 +45,9 @@ func getRequest(_ url: String,
                 parameters: Parameters,
                 success: SuccessJSONHandle?,
                 failure: FailureHandle?) {
+    
     request(url: url, method: .get, parameters: parameters, success: success, failure: failure)
+    
 }
 
 func upload(_ url: String,
@@ -87,8 +101,15 @@ private func request(url: String,
                      success: SuccessJSONHandle?,
                      failure: FailureHandle?) {
     
-    
-    Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseSwiftyJSON { (response) in
+    let configuration = URLSessionConfiguration.default
+    let r = NetworkReachabilityManager()
+    if r?.isReachable == false {
+        configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+    }else {
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+    }
+
+    manager.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseSwiftyJSON { (response) in
         switch response.result {
         case .success(let vale):
             if let success = success {
@@ -100,6 +121,6 @@ private func request(url: String,
             }
         }
     }
-    
-}
+        
+    }
 

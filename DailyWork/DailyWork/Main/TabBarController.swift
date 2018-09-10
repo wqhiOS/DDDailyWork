@@ -15,7 +15,9 @@ class TabBarController: UITabBarController {
 
         // Do any additional setup after loading the view.
         addChildViewController(MusicMainViewController(), title: "音乐")
+        addChildViewController(WorkMainViewController(), title: "工作")
         addChildViewController(WeatherMainViewController(), title: "天气")
+        
         
     }
     

@@ -13,6 +13,14 @@
 		E340462B211D6ADF00FC2476 /* MusicProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340462A211D6ADF00FC2476 /* MusicProgressButton.swift */; };
 		E340462D211D721300FC2476 /* MusicPlayToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340462C211D721200FC2476 /* MusicPlayToolView.swift */; };
 		E340462F211D83A900FC2476 /* MusicTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340462E211D83A900FC2476 /* MusicTransitionAnimation.swift */; };
+		E34363E82146393C00C4BA35 /* WorkCalendarHedaerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34363E72146393C00C4BA35 /* WorkCalendarHedaerView.swift */; };
+		E34363EC214646FB00C4BA35 /* WorkCalendarPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34363EB214646FB00C4BA35 /* WorkCalendarPageViewController.swift */; };
+		E34363EE2146471000C4BA35 /* WorkCalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34363ED2146471000C4BA35 /* WorkCalendarContentViewController.swift */; };
+		E34363F021464DA400C4BA35 /* WorkCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34363EF21464DA400C4BA35 /* WorkCalendarCell.swift */; };
+		E34363F22146509800C4BA35 /* WorkCalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34363F12146509800C4BA35 /* WorkCalendarHeaderView.swift */; };
+		E34363F4214658A700C4BA35 /* WorkCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34363F3214658A700C4BA35 /* WorkCalendarView.swift */; };
+		E34363F6214658D300C4BA35 /* WorkCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34363F5214658D300C4BA35 /* WorkCalendarViewController.swift */; };
+		E3526FB32123D1FA008411B2 /* WorkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3526FB22123D1FA008411B2 /* WorkMainViewController.swift */; };
 		E3584A90211C2ED5000FFF01 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A8F211C2ED5000FFF01 /* UIFont+Extension.swift */; };
 		E3584A92211C30AB000FFF01 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A91211C30AB000FFF01 /* Common.swift */; };
 		E3584A94211C3DBB000FFF01 /* DDAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */; };
@@ -83,6 +91,14 @@
 		E340462A211D6ADF00FC2476 /* MusicProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProgressButton.swift; sourceTree = "<group>"; };
 		E340462C211D721200FC2476 /* MusicPlayToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayToolView.swift; sourceTree = "<group>"; };
 		E340462E211D83A900FC2476 /* MusicTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTransitionAnimation.swift; sourceTree = "<group>"; };
+		E34363E72146393C00C4BA35 /* WorkCalendarHedaerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCalendarHedaerView.swift; sourceTree = "<group>"; };
+		E34363EB214646FB00C4BA35 /* WorkCalendarPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkCalendarPageViewController.swift; sourceTree = "<group>"; };
+		E34363ED2146471000C4BA35 /* WorkCalendarContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCalendarContentViewController.swift; sourceTree = "<group>"; };
+		E34363EF21464DA400C4BA35 /* WorkCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCalendarCell.swift; sourceTree = "<group>"; };
+		E34363F12146509800C4BA35 /* WorkCalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCalendarHeaderView.swift; sourceTree = "<group>"; };
+		E34363F3214658A700C4BA35 /* WorkCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCalendarView.swift; sourceTree = "<group>"; };
+		E34363F5214658D300C4BA35 /* WorkCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCalendarViewController.swift; sourceTree = "<group>"; };
+		E3526FB22123D1FA008411B2 /* WorkMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkMainViewController.swift; sourceTree = "<group>"; };
 		E3584A8F211C2ED5000FFF01 /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		E3584A91211C30AB000FFF01 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		E3584A93211C3DBB000FFF01 /* DDAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDAudioPlayer.swift; sourceTree = "<group>"; };
@@ -170,6 +186,53 @@
 				E39A0395212180E400EAF30C /* DDAudioTool.swift */,
 			);
 			path = AudioPlayer;
+			sourceTree = "<group>";
+		};
+		E3526FAD2123D1AD008411B2 /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				E3526FAE2123D1CE008411B2 /* Model */,
+				E3526FB12123D1CE008411B2 /* Other */,
+				E3526FB02123D1CE008411B2 /* View */,
+				E3526FAF2123D1CE008411B2 /* ViewController */,
+			);
+			path = Work;
+			sourceTree = "<group>";
+		};
+		E3526FAE2123D1CE008411B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E3526FAF2123D1CE008411B2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E3526FB22123D1FA008411B2 /* WorkMainViewController.swift */,
+				E34363F5214658D300C4BA35 /* WorkCalendarViewController.swift */,
+				E34363EB214646FB00C4BA35 /* WorkCalendarPageViewController.swift */,
+				E34363ED2146471000C4BA35 /* WorkCalendarContentViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E3526FB02123D1CE008411B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E34363E72146393C00C4BA35 /* WorkCalendarHedaerView.swift */,
+				E34363EF21464DA400C4BA35 /* WorkCalendarCell.swift */,
+				E34363F12146509800C4BA35 /* WorkCalendarHeaderView.swift */,
+				E34363F3214658A700C4BA35 /* WorkCalendarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E3526FB12123D1CE008411B2 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		E3C1B176211BD4D100FCD95B /* Music */ = {
@@ -277,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				E3C1B17A211BD69D00FCD95B /* Main */,
+				E3526FAD2123D1AD008411B2 /* Work */,
 				E3C1B176211BD4D100FCD95B /* Music */,
 				E3EF6AD6211A77C200DD947E /* Weather */,
 				E3EF6AA4211A755B00DD947E /* AppDelegate.swift */,
@@ -519,9 +583,14 @@
 				E3C1B18D211C15E900FCD95B /* exported.swift in Sources */,
 				E3EF6AD8211A77D000DD947E /* BaseViewController.swift in Sources */,
 				E3404627211D35D500FC2476 /* MusicPlayListViewController.swift in Sources */,
+				E34363EC214646FB00C4BA35 /* WorkCalendarPageViewController.swift in Sources */,
+				E34363F4214658A700C4BA35 /* WorkCalendarView.swift in Sources */,
+				E34363EE2146471000C4BA35 /* WorkCalendarContentViewController.swift in Sources */,
 				E3C1B180211C012800FCD95B /* DDNetwork.swift in Sources */,
 				E3EF6AD5211A76A300DD947E /* NavigationViewController.swift in Sources */,
+				E34363F021464DA400C4BA35 /* WorkCalendarCell.swift in Sources */,
 				E3584A94211C3DBB000FFF01 /* DDAudioPlayer.swift in Sources */,
+				E3526FB32123D1FA008411B2 /* WorkMainViewController.swift in Sources */,
 				E3584A92211C30AB000FFF01 /* Common.swift in Sources */,
 				E3C1B18F211C1E7900FCD95B /* UIScrollView+Extension.swift in Sources */,
 				E340462D211D721300FC2476 /* MusicPlayToolView.swift in Sources */,
@@ -529,12 +598,15 @@
 				E3C1B179211BD51A00FCD95B /* MusicHandle.swift in Sources */,
 				E3EF6AD3211A763500DD947E /* TabBarController.swift in Sources */,
 				E3C1B183211C088C00FCD95B /* MusicInfo.swift in Sources */,
+				E34363F6214658D300C4BA35 /* WorkCalendarViewController.swift in Sources */,
 				E3C1B17C211BDB5100FCD95B /* MusicSearchResultViewController.swift in Sources */,
 				E340462F211D83A900FC2476 /* MusicTransitionAnimation.swift in Sources */,
+				E34363E82146393C00C4BA35 /* WorkCalendarHedaerView.swift in Sources */,
 				E340462B211D6ADF00FC2476 /* MusicProgressButton.swift in Sources */,
 				E3584A90211C2ED5000FFF01 /* UIFont+Extension.swift in Sources */,
 				E3EF6ADA211A77E000DD947E /* WeatherMainViewController.swift in Sources */,
 				E3C1B186211C139300FCD95B /* MusicListCell.swift in Sources */,
+				E34363F22146509800C4BA35 /* WorkCalendarHeaderView.swift in Sources */,
 				E3EF6ADC211AED1800DD947E /* MusicMainViewController.swift in Sources */,
 				E3404622211D2F8400FC2476 /* MusicBitrate.swift in Sources */,
 				E3584A96211C3F1B000FFF01 /* DDAudioModel.swift in Sources */,
