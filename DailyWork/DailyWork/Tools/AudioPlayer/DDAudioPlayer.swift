@@ -66,7 +66,11 @@ class DDAudioPlayer: NSObject {
     
     private func setupMediaSession() {
         UIApplication.shared.beginReceivingRemoteControlEvents()
-        try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        if #available(iOS 10.0, *) {
+            try? AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+        } else {
+            
+        }
         try? AVAudioSession.sharedInstance().setActive(true)
 
     }
@@ -76,7 +80,7 @@ extension DDAudioPlayer {
     private func startTimer(){
         stopTimer()
         timer = Timer.scheduledTimer(timeInterval: 1.0/2.0, target: self, selector: #selector(timerPlay), userInfo: nil, repeats: true)
-        RunLoop.current.add(timer!, forMode: .commonModes)
+        RunLoop.current.add(timer!, forMode: RunLoop.Mode.common)
         
     }
     private func stopTimer() {

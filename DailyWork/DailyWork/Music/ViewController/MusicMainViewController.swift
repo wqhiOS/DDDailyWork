@@ -38,7 +38,7 @@ class MusicMainViewController: BaseViewController {
     
     private lazy var search: UISearchController = {
         let search = UISearchController.init(searchResultsController: MusicSearchResultViewController())
-        addChildViewController(search)
+        addChild(search)
         search.searchBar.barTintColor = UIColor.blue
         search.searchBar.tintColor = UIColor.yellow
         search.delegate = self

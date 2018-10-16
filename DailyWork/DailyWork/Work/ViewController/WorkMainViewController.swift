@@ -17,7 +17,7 @@ class WorkMainViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         
-        addChildViewController(calendarViewController)
+        addChild(calendarViewController)
         calendarViewController.view.frame = CGRect(x: 0, y: SCREEN_HEIGHT-49-WorkCalendarViewController.contentHeight, width: SCREEN_WIDTH, height: WorkCalendarViewController.contentHeight)
         view.addSubview(calendarViewController.view)
         

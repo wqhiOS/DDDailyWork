@@ -25,7 +25,7 @@ class WorkCalendarViewController: UIViewController {
         titleView.addSubview(titleLabel)
         calendarView.addSubview(titleView)
         
-        addChildViewController(calendarPageVc)
+        addChild(calendarPageVc)
         calendarPageVc.view.frame = CGRect(x: 0, y: 40, width: SCREEN_WIDTH, height: WorkCalendarContentViewController.contentHeight)
         calendarView.addSubview(calendarPageVc.view)
         

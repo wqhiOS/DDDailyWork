@@ -29,7 +29,7 @@ class WorkCalendarHeaderView: UICollectionReusableView {
         label.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview()
-//            make.height.equalTo(40)
+            make.height.equalTo(40)
         }
         let stackView = UIStackView()
         stackView.axis = .horizontal

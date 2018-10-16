@@ -25,9 +25,12 @@ class TabBarController: UITabBarController {
         
         childController.title = title
         let nav = NavigationViewController.init(rootViewController: childController)
-        nav.navigationBar.prefersLargeTitles = true
-        childController.navigationItem.largeTitleDisplayMode = .automatic
-        addChildViewController(nav)
+        if #available(iOS 11.0, *) {
+            nav.navigationBar.prefersLargeTitles = true
+            childController.navigationItem.largeTitleDisplayMode = .automatic
+        } 
+        
+        addChild(nav)
         
     }
     

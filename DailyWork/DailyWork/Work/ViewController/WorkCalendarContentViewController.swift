@@ -27,8 +27,11 @@ class WorkCalendarContentViewController: UIViewController {
         collectionView.backgroundColor = UIColor.white
         collectionView.dataSource = self
         collectionView.register(WorkCalendarCell.self, forCellWithReuseIdentifier: WorkCalendarCell.description())
-        collectionView.register(WorkCalendarHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: WorkCalendarHeaderView.description())
-        collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.register(WorkCalendarHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: WorkCalendarHeaderView.description())
+        if #available(iOS 11.0, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }
+        
         return collectionView
     }()
 
@@ -40,6 +43,11 @@ class WorkCalendarContentViewController: UIViewController {
         collectionView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        
+        
+        //获取当前月 1号 数据
+        let dayInfoUnits = UInt8(NSCalendar.Unit.era.rawValue) | UInt8(NSCalendar.Unit.year.rawValue) | UInt8(NSCalendar.Unit.month.rawValue) | UInt8(NSCalendar.Unit.day.rawValue)
+        
     }
 
 }
@@ -61,7 +69,7 @@ extension WorkCalendarContentViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: WorkCalendarHeaderView.description(), for: indexPath)
+        let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: WorkCalendarHeaderView.description(), for: indexPath)
         return reusableView
     }
 }

@@ -15,9 +15,17 @@ class WorkCalendarPageViewController: UIPageViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
         dataSource = self
+        
         setViewControllers([WorkCalendarContentViewController()], direction: .forward, animated: true, completion: nil)
     }
 
+}
+
+extension WorkCalendarPageViewController {
+    //获取当前日期
+    private func getCurrentDate() {
+        
+    }
 }
 
 extension WorkCalendarPageViewController: UIPageViewControllerDataSource {
